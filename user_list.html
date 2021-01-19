@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>User List</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            document.getElementById("users").addEventListener("click", (e)=>{
+            let element = e["srcElement"]
+            while(!element.className.includes("user-list")){
+                element=element.parentNode
+            }
+            console.log("/user/get_roles/"+element.id)
+            document.getElementById("modal").style.display = "block"
+        })
+        document.getElementById("closemodal").addEventListener("click",function(){
+        modal.style.display ="none"
+        })
+      document.addEventListener("click", function(e){
+        if(e.srcElement.id == 'modal'){
+          modal.style.display="none"
+        }
+      })
+        })
+    </script>
+    <style>
+        .row{
+            display: flex;
+            width: 100%;
+        }
+        .column{
+            padding:10px;
+        }
+        .column.side{
+            flex: 1;
+        }
+        .column.middle{
+            flex:2;
+        }
+        @media (max-width: 600px) {
+            .row{
+                font-size: 10px;
+            }
+        }
+        .modal{
+        display:none;
+        position:fixed;
+        z-index:1;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        overflow:auto;
+        background-color:rgba(0,0,0,0.4); 
+        }
+    .close-modal{
+      position:relative;
+      left:95%;
+      width: 28px;
+      color: #aaa;
+      float:left;
+      font-size:28px;
+      font-weight:bold;
+    }
+    .modal-content{
+      color:black;
+      background-color:#fefefe;
+      margin:15% auto;
+      padding:20px;
+      border:1px solid #888;
+      width: 80%;
+    }
+    </style>
+</head>
+<body>
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modal-content">
+            <span id="closemodal" class="close-modal" >&times;</span>
+            <div id="signup_panel">
+            </div>
+            <div id = "signin_panel">
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <ol class="column side">User ID</ol>
+        <ol class="column middle">User Email</ol>
+        <ol class="column side">User Name</doliv>
+    </div>
+    <div id="users">
+        
+        <div class="row user-list" id="90ffc9d9">
+            <ol class="column side">
+                90ffc9d9
+            </ol>
+            <ol class="column middle">
+                MMSQUAD93@YAHOO.COM
+            </ol>
+            <ol class="column side">
+                Marc
+            </ol>
+        </div>
+        
+        <div class="row user-list" id="efbdcc52">
+            <ol class="column side">
+                efbdcc52
+            </ol>
+            <ol class="column middle">
+                MMSQUAD93@GMAIL.COM
+            </ol>
+            <ol class="column side">
+                
+            </ol>
+        </div>
+        
+    </div>
+</body>
+</html>
